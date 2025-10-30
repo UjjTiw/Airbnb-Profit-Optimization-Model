@@ -1,3 +1,5 @@
+[![CI](https://github.com/UjjTiw/Airbnb-Profit-Optimization-Model/actions/workflows/ci.yml/badge.svg)](https://github.com/UjjTiw/Airbnb-Profit-Optimization-Model/actions/workflows/ci.yml)
+
 # Goals
 
 ## Business Goals
