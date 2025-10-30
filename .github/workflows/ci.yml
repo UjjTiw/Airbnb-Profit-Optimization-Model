@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps (skip if no reqs)
+        run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; else echo "no reqs"; fi
+
+      - name: Run tests
+        run: |
+          if [ -f pytest.ini ] || [ -d tests ]; then pytest; else echo "no tests"; fi
